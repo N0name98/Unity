@@ -42,4 +42,8 @@ public class MyBall : MonoBehaviour
             rigid.AddForce(Vector3.up * 2, ForceMode.Impulse);
         }
     }
+    public void Jump()
+    {
+        rigid.AddForce(Vector3.up * 20, ForceMode.Impulse);
+    }
 }

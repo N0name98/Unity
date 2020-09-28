@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 107446075}
   - component: {fileID: 107446074}
   - component: {fileID: 107446073}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -241,7 +241,7 @@ GameObject:
   - component: {fileID: 404291868}
   - component: {fileID: 404291867}
   - component: {fileID: 404291866}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -468,7 +468,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &428610559
 Animator:
@@ -582,10 +582,10 @@ GameObject:
   m_Component:
   - component: {fileID: 798264573}
   - component: {fileID: 798264572}
-  - component: {fileID: 798264571}
   - component: {fileID: 798264570}
   - component: {fileID: 798264574}
   - component: {fileID: 798264575}
+  - component: {fileID: 798264571}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -608,14 +608,14 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 2
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 5
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &798264571
-BoxCollider2D:
+--- !u!70 &798264571
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -628,18 +628,8 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.9, y: 1}
-  m_EdgeRadius: 0
+  m_Size: {x: 1, y: 1}
+  m_Direction: 0
 --- !u!212 &798264572
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -736,7 +726,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a67b4d7d2c055db4f855cfcac1191ef0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 5
+  maxSpeed: 4.5
+  jumoPower: 20
 --- !u!1 &806534871
 GameObject:
   m_ObjectHideFlags: 0
@@ -835,7 +826,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &806534875
 Animator:
@@ -867,7 +858,7 @@ GameObject:
   - component: {fileID: 1114088598}
   - component: {fileID: 1114088597}
   - component: {fileID: 1114088596}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Floor (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -963,7 +954,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1121425909
 GameObject:
@@ -976,7 +967,7 @@ GameObject:
   - component: {fileID: 1121425912}
   - component: {fileID: 1121425911}
   - component: {fileID: 1121425910}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Floor (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1072,7 +1063,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1324978323
 GameObject:
@@ -1085,7 +1076,7 @@ GameObject:
   - component: {fileID: 1324978326}
   - component: {fileID: 1324978325}
   - component: {fileID: 1324978324}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Floor (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1181,7 +1172,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1799970372
 GameObject:
@@ -1194,7 +1185,7 @@ GameObject:
   - component: {fileID: 1799970375}
   - component: {fileID: 1799970374}
   - component: {fileID: 1799970373}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Floor (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1290,7 +1281,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1928982190
 GameObject:
@@ -1303,7 +1294,7 @@ GameObject:
   - component: {fileID: 1928982193}
   - component: {fileID: 1928982192}
   - component: {fileID: 1928982191}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Floor (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1399,7 +1390,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1981116916
 GameObject:
@@ -1412,7 +1403,7 @@ GameObject:
   - component: {fileID: 1981116919}
   - component: {fileID: 1981116918}
   - component: {fileID: 1981116917}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1521,7 +1512,7 @@ GameObject:
   - component: {fileID: 1997839732}
   - component: {fileID: 1997839731}
   - component: {fileID: 1997839730}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Floor (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1617,7 +1608,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2133452751
 GameObject:
@@ -1630,7 +1621,7 @@ GameObject:
   - component: {fileID: 2133452754}
   - component: {fileID: 2133452753}
   - component: {fileID: 2133452752}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Floor (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1726,7 +1717,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2146753528
 GameObject:
@@ -1857,5 +1848,5 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

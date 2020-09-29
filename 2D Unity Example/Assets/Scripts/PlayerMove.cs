@@ -65,4 +65,30 @@ public class PlayerMove : MonoBehaviour
         }
 
     }
+
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.layer == 9)
+        {
+            onDamaged(other.transform.position);
+        }
+    }
+
+    void onDamaged(Vector2 targetPos)
+    {
+        gameObject.layer = 11;
+
+        spriteRenderer.color = new Color(1, 1, 1, 0.4f);
+
+        int dirc = transform.position.x - targetPos.x > 0 ? 1 : -1;
+        rigid.AddForce(new Vector2(dirc, 1) * 7, ForceMode2D.Impulse);
+
+        animate.SetTrigger("doDamaged");
+        Invoke("OffDamaged", 2);
+    }
+    void OffDamaged()
+    {
+        gameObject.layer = 10;
+        spriteRenderer.color = new Color(1, 1, 1, 1);
+    }
 }

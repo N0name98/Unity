@@ -80,7 +80,7 @@ public class GameManager : MonoBehaviour
     }
     public void GameLoad()
     {
-
+        //모바일
     }
     public void GameExit()
     {

@@ -10,9 +10,25 @@ public class GameManager : MonoBehaviour
     public Animator talkPanel;
     public TypeEffect talk;
     public GameObject scanObject;
+    public GameObject menuSet;
+    public GameObject player;
     public Image portraitImg;
     public bool isAction;
     public int talkIndex;
+
+    void Update()
+    {
+
+        if (Input.GetButtonDown("Cancel"))
+        {
+            if (menuSet.activeSelf)
+                menuSet.SetActive(false);
+            else
+                menuSet.SetActive(true);
+
+        }
+
+    }
 
     public void Action(GameObject scanObj)
     {
@@ -51,5 +67,23 @@ public class GameManager : MonoBehaviour
 
         isAction = true;
         talkIndex++;
+    }
+    public void GameSave()
+    {
+        PlayerPrefs.SetFloat("PlayerX", player.transform.position.x);
+        PlayerPrefs.SetFloat("PlayerY", player.transform.position.y);
+        PlayerPrefs.SetFloat("QuestId", questManager.questId);
+        PlayerPrefs.SetFloat("QuestActionIndex", questManager.questActionIndex);
+        PlayerPrefs.Save();
+
+        menuSet.SetActive(false);
+    }
+    public void GameLoad()
+    {
+
+    }
+    public void GameExit()
+    {
+        Application.Quit();
     }
 }

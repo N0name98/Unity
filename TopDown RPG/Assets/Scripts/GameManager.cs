@@ -7,17 +7,12 @@ public class GameManager : MonoBehaviour
 {
     public TalkManager talkManager;
     public QuestManager questManager;
-    public GameObject talkPanel;
-    public Text talkText;
+    public Animator talkPanel;
+    public TypeEffect talk;
     public GameObject scanObject;
     public Image portraitImg;
     public bool isAction;
     public int talkIndex;
-
-    void Start()
-    {
-        questManager.CheckQuest();
-    }
 
     public void Action(GameObject scanObj)
     {
@@ -25,7 +20,7 @@ public class GameManager : MonoBehaviour
         ObjData objData = scanObject.GetComponent<ObjData>();
         Talk(objData.id, objData.isNpc);
 
-        talkPanel.SetActive(isAction);
+        talkPanel.SetBool("isShow", isAction);
     }
 
     void Talk(int id, bool isNpc)
@@ -42,14 +37,14 @@ public class GameManager : MonoBehaviour
         }
         if (isNpc)
         {
-            talkText.text = talkData.Split(':')[0];
+            talk.SetMsg(talkData.Split(':')[0]);
 
             portraitImg.sprite = talkManager.GetPortrait(id, int.Parse(talkData.Split(':')[1]));
             portraitImg.color = new Color(1, 1, 1, 1);
         }
         else
         {
-            talkText.text = talkData;
+            talk.SetMsg(talkData);
 
             portraitImg.color = new Color(1, 1, 1, 0);
         }

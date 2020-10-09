@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
 
     public GameObject bulletObjA;
     public GameObject bulletObjB;
+    public GameManager manager;
 
     Animator animator;
 
@@ -115,6 +116,11 @@ public class Player : MonoBehaviour
                     isTouchLeft = true;
                     break;
             }
+        }
+        else if (other.gameObject.tag == "Enemy" || other.gameObject.tag == "EnemyBullet")
+        {
+            manager.RespawnPlayer();
+            gameObject.SetActive(false);
         }
     }
 

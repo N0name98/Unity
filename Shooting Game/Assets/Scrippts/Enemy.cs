@@ -17,6 +17,9 @@ public class Enemy : MonoBehaviour
 
     public GameObject bulletObjA;
     public GameObject bulletObjB;
+    public GameObject itmeCoin;
+    public GameObject itemPower;
+    public GameObject itemBoom;
     public GameObject player;
 
     void Awake()
@@ -61,8 +64,11 @@ public class Enemy : MonoBehaviour
         curShotDelay += Time.deltaTime;
     }
 
-    void OnHit(int dmg)
+    public void OnHit(int dmg)
     {
+        if (health <= 0)
+            return;
+
         health -= dmg;
         spriteRenderer.sprite = sprites[1];
         Invoke("ReturnSprite", 0.1f);
@@ -71,6 +77,25 @@ public class Enemy : MonoBehaviour
         {
             Player playerLogic = player.GetComponent<Player>();
             playerLogic.score += enemyScore;
+
+            int random = Random.Range(0, 10);
+            if (random < 4)
+            {
+                Debug.Log("No Item");
+            }
+            else if (random < 7)
+            {
+                Instantiate(itmeCoin, transform.position, itmeCoin.transform.rotation);
+            }
+            else if (random < 9)
+            {
+                Instantiate(itemPower, transform.position, itmeCoin.transform.rotation);
+            }
+            else if (random < 10)
+            {
+                Instantiate(itemBoom, transform.position, itmeCoin.transform.rotation);
+            }
+
             Destroy(gameObject);
         }
     }
